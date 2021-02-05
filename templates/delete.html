@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block body %}
+<hr>
+<h1>Delete Pet</h1>
+        <div class='form'>
+            <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.petname.label }} {{ form.petname }}
+                <br>
+                {{ form.submit }}
+            {{ message }}
+            </form>
+        </div>
+{% endblock body %}
+
+
