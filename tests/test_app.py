@@ -65,6 +65,6 @@ class TestUpdate(TestBase):
 
 class TestDelete(TestBase):
     def test_delete_post(self):
-        self.client.post(url_for('delete'), data=dict(petname = "Puppy", personname = "Harry"), follow_redirects=True)
+        self.client.post(url_for('delete'), data=dict(petname="Puppy", person = "Harry"), follow_redirects=True)
         response = self.client.get(url_for('review'))
         self.assertEqual(response.status_code, 200)
