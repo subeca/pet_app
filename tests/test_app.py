@@ -62,6 +62,7 @@ class TestAdd(TestBase):
 class TestUpdate(TestBase):
     def test_update_post(self):
         self.client.post(url_for('update'), data=dict(oldname="Puppy", newname="Kitten"), follow_redirects=True)
+        self.assertIn(b'Kitten', response.data)
 
 class TestDelete(TestBase):
     def test_delete_post(self):
