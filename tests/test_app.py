@@ -4,7 +4,7 @@ import unittest
 from flask import url_for
 from flask_testing import TestCase
 from app import app
-from application import db
+from application import app, db
 from application.models import Person, Pet
 
 class TestBase(TestCase):
@@ -60,3 +60,9 @@ class TestAdd(TestBase):
 class TestUpdate(TestBase):
     def test_update_post(self):
         self.client.post(url_for('update'), data=dict(oldname="Puppy", newname="Kitten"), follow_redirects=True)
+
+class TestDelete(TestBase):
+    def test_delete_post(self):
+        self.client.post(url_for('delete'), data=dict(petname = "Puppy", personname = "Harry"), follow_redirects=True)
+        response = self.client.get(url_for('review'))
+        self.assertEqual(response.status_code, 200)
