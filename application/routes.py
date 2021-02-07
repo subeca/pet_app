@@ -34,7 +34,7 @@ def add():
         if len(personname) == 0 or len(petname) == 0:
             error = "Please enter your name and the pet's name"
         else:
-            return redirect(url_for('index'))
+            return redirect(url_for('review'))
 
     return render_template('add.html', form=form, message=error)
 
@@ -49,7 +49,7 @@ def update():
         newname = form.newname.data
         petname.name = newname
         db.session.commit()
-        return redirect(url_for('index'))
+        return redirect(url_for('review'))
 
     return render_template('update.html', form=form, message=error)
 
@@ -62,6 +62,6 @@ def delete():
         petname = form.petname.data
         db.session.delete(petname)
         db.session.commit()
-        return "Pet name has been successfully deleted"
+        return redirect(url_for("review"))
     
     return render_template('delete.html', form=form, message=error)

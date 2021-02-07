@@ -1,7 +1,8 @@
-{% extends "index.html" %}
-{% block body %}
-<hr>
-<h1>Edit Pet Listing/h1>
+<html>
+    <head>
+        <title>Edit Pet</title>
+    </head>
+    <body>
         <div class='form'>
             <form method='POST' action=''>
                 {{ form.hidden_tag() }}
@@ -13,5 +14,6 @@
             {{ message }}
             </form>
         </div>
-{% endblock body %}
+    </body>
+</html>
 

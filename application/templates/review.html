@@ -1,12 +1,16 @@
-{% extends "index.html" %}
-{% block body %}
-<hr>
-<h1>List of Pets:</h1>
-    <ul>
-        {% for n in fulllist %}
-        <tr>
-            <li>{{ n.name }}</li>
-            </tr>
-        {% endfor %}
-    </ul>
-{% endblock body %}
+<html>
+    <head>
+        <title>List of Pets</title>
+    </head>
+    <body>
+        <ul>
+            {% for n in fulllist %}
+            <tr>
+                <li>{{ n.name }}</li>
+                </tr>
+            {% endfor %}
+        </ul>
+        {% block body %}
+        {% endblock body %}
+    </body>
+</html>
